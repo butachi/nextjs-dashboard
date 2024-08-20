@@ -8,6 +8,7 @@ import bcrypt from 'bcrypt';
 import { sql } from '@vercel/postgres';
 
 import { redirect } from 'next/navigation';
+import { date } from 'zod';
 
 export async function authenticate(
     prevState: string | undefined,
@@ -21,7 +22,6 @@ export async function authenticate(
                 case 'CredentialsSignin':
                     return 'Invalid credentials.';
                 case 'CallbackRouteError':
-                    return 'CallbackRouteError';
                 default:
                     return 'Something went wrong.';
             }
